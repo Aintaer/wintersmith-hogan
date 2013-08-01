@@ -36,6 +36,7 @@ module.exports = (wintersmith, callback) ->
       if error then callback error
       else
         try
+		  filename = filepath.relative
           ext = path.extname(filename)
           basename = path.basename(filename, ext)
           tpl = hogan.compile contents.toString()
