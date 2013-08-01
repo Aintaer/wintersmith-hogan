@@ -19,8 +19,8 @@ module.exports = (wintersmith, callback) ->
       catch error
         callback error
   
-  HoganTemplate.fromFile = (filename, base, callback) ->
-    fs.readFile path.join(base, filename), (error, contents) ->
+  HoganTemplate.fromFile = (filepath, callback) ->
+    fs.readFile filepath.full, (error, contents) ->
       if error then callback error
       else
         try
@@ -31,8 +31,8 @@ module.exports = (wintersmith, callback) ->
 
   class HoganPartial extends HoganTemplate
 
-  HoganPartial.fromFile = (filename, base, callback) ->
-    fs.readFile path.join(base, filename), (error, contents) ->
+  HoganPartial.fromFile = (filepath, callback) ->
+    fs.readFile filepath.full, (error, contents) ->
       if error then callback error
       else
         try
